@@ -1,0 +1,56 @@
+# Скомпилированные файлы
+*.o
+*.a
+*.so
+*.so.*
+*.dylib
+
+# Выполняемые файлы
+*.exe
+*.out
+PFL
+build/PFL
+
+# Директория сборки
+build/
+cmake-build-debug/
+cmake-build-release/
+.cmake/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Debug файлы
+*.dSYM/
+*.su
+*.gch
+*.pch
+*.core
+core.*
+
+# Объектные файлы для CMake
+CMakeUserPresets.json
+
+# Временные файлы
+*.tmp
+*.bak
+*.backup
+.backup/
+
+# Логи
+*.log
+
+# Файлы GTK
+*.glade~
+*~ (копия).*
