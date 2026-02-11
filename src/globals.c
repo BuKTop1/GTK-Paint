@@ -1,10 +1,6 @@
-/* globals.c - определения глобальных переменных */
-
 #include <gtk/gtk.h>
 
-/* Все глобальные переменные объявлены здесь  */
-
-/* GTK виджеты */
+// widgets
 GtkWidget *window;
 GtkWidget *fixed;
 GtkWidget *button_selection;
@@ -94,14 +90,14 @@ GtkWidget *f_save;
 
 GtkBuilder *builder;
 
-/* Цветовые переменные */
+// color variables
 GdkRGBA ucol[8] = {{0}};
 GdkRGBA col1 = {0};
 GdkRGBA col2 = {0};
 GdkPixbuf *pixb = NULL;
 GdkPixbuf *pixb_on_press = NULL;
 
-/* Флаги и параметры */
+// flags
 gboolean press = FALSE;
 gboolean fill = TRUE;
 gboolean line = TRUE;
@@ -109,7 +105,7 @@ gboolean mouse = FALSE;
 gboolean thr = FALSE;
 gboolean button_on = FALSE;
 
-/* Размеры и форматы */
+// other
 gint width = 0;
 gint height = 0;
 gint format = 0;
@@ -118,11 +114,9 @@ gint line_w1 = 1;
 gchar *file_name = NULL;
 char line_s[4] = {0};
 
-/* Значения для рисования */
 cairo_surface_t *surface = NULL;
 cairo_t *cr = NULL;
 
-/* Координаты и параметры Drawing */
 gint x = 0;
 gint y = 0;
 gint rowstride = 0;
@@ -133,7 +127,6 @@ gint cruve_xy[6] = {0};
 GdkRGBA dr_col1 = {0};
 GdkRGBA dr_col2 = {0};
 
-/* Перечисления */
 enum {rectangle_f, elips_f, polygon_f} figure = 0;
 enum {
     brush,
@@ -148,5 +141,4 @@ enum {
     figure_in
 } instrument = 0;
 
-/* Обработчики сигналов */
 gulong h_ids[72] = {0};

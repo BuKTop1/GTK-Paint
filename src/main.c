@@ -6,12 +6,12 @@
 int main(int argc, char* argv[]){
     
     gtk_init(&argc,&argv);
-    builder = gtk_builder_new_from_file("PFL.glade");
+    builder = gtk_builder_new_from_file("asserts/PFL.glade");
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
     g_signal_connect(window,"destroy",G_CALLBACK(gtk_main_quit),NULL);
      //~ gtk_builder_connect_signals(builder,NULL);
     
-    //Загрузка виджетов из файла PFL.glade
+    // getting widgets from PFL.glade
     fixed = GTK_WIDGET(gtk_builder_get_object(builder, "fixed"));
     draw_figure = GTK_WIDGET(gtk_builder_get_object(builder, "draw_figure"));
     button_selection = GTK_WIDGET(gtk_builder_get_object(builder, "button_selection"));
@@ -104,10 +104,10 @@ int main(int argc, char* argv[]){
     f_save = GTK_WIDGET(gtk_builder_get_object(builder, "f_save"));
 
     
-    //Связывание боработчиков сигналов
+    // Linking signal handlers
     gtk_builder_connect_signals (builder, NULL);
 
-	//Открытие начального файла (временно)
+	// Opening the initial file (temporarily)
     pixb=gdk_pixbuf_new_from_file("/home/buktop/Изображения/oboi.svg",NULL);
     g_object_set(main_im,"pixbuf",pixb,NULL);
     gtk_widget_add_events(main_bt, GDK_POINTER_MOTION_MASK);
@@ -120,7 +120,7 @@ int main(int argc, char* argv[]){
     
     gtk_widget_hide_on_delete (color_dialog);
     
-    //Связывание с css-файлом
+    // Linking to a css file
     GdkScreen *scr = gdk_screen_get_default();
     GtkCssProvider *provider = gtk_css_provider_new();
     gtk_css_provider_load_from_path(provider, "PFL.css", NULL);
@@ -129,7 +129,7 @@ int main(int argc, char* argv[]){
                                       GTK_STYLE_PROVIDER_PRIORITY_USER);
     gtk_style_context_reset_widgets(scr);
 
-    //Задаются начальные значения переменным
+    // Initial values are set for variables
     gdk_rgba_parse(&col1,"#000");
     gdk_rgba_parse(&col2,"#fff");
     for(int i=0;i<8;i++){
@@ -142,7 +142,7 @@ int main(int argc, char* argv[]){
     instrument = brush;
     pixb_on_press=gdk_pixbuf_copy(pixb);
  
-    //Запуск программы
+    // program start
     gtk_widget_show(window);
     gtk_widget_hide(menu_box);
     gtk_main();
